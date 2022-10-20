@@ -25,10 +25,10 @@ frame.grid(row=0, column=0)
 entry = Entry(frame, width=40)
 entry.grid(row=1, column=(1), columnspan=8)
 
-button_1 = Button(frame, text='1', fg='black', width=10, textvariable=number_1)
+button_1 = Button(frame, text='1', fg='black', width=10)
 button_1.grid(row = 2, column=0)
 
-button_2 = Button(frame, text='2', fg='black', width=10, textvariable= number_2)
+button_2 = Button(frame, text='2', fg='black', width=10)
 button_2.grid(row = 2, column=1)
 
 button_3 = Button(frame, text='3', fg='black', width=10)
