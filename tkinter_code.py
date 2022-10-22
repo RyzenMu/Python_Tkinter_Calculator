@@ -17,7 +17,8 @@ def clear():
     entry.delete(0, END)
 
 def add():
-    first_number = int(entry.get())
+    first_number = 0
+    first_number = entry.get()
     entry.delete(0, END)
     print(first_number)
     
