@@ -17,12 +17,46 @@ def clear():
     entry.delete(0, END)
 
 def add():
-    first_number = 0
     first_number = entry.get()
     entry.delete(0, END)
-    print(first_number)
-    
+    with open ('temp.txt', 'a') as f:
+        f.write(first_number+'+')
 
+def sub():
+    first_number = entry.get()
+    entry.delete(0, END)
+    with open ('temp.txt', 'a') as f:
+        f.write(first_number+'-')
+
+def mul():
+    first_number = entry.get()
+    entry.delete(0, END)
+    with open ('temp.txt', 'a') as f:
+        f.write(first_number+'*')
+
+def div():
+    first_number = entry.get()
+    entry.delete(0, END)
+    with open ('temp.txt', 'a') as f:
+        f.write(first_number+'/')
+
+def equ():
+    first_number = entry.get()
+    entry.delete(0, END)
+    with open ('temp.txt', 'a') as f:
+        f.write(first_number)
+
+    with open ('temp.txt', 'r') as g:
+        expression = g.read()
+        for i in range(len(expression)):
+            if i % 2 == 0:
+                number = int(expression[i])
+                print(number)
+            else:
+                print(expression[i])
+        
+    with open ('temp.txt', 'w') as j:
+        j.write('')
 
 
 frame = Frame(frame, bg='blue', width=500, height=500)
@@ -82,16 +116,16 @@ number_0 = IntVar(button_0, value=0, name='0')
 button_plus = Button(frame, text='+', fg='black', width=10, command = lambda : add())
 button_plus.grid(row = 2, column=3)
 
-button_minus = Button(frame, text='-', fg='black', width=10)
+button_minus = Button(frame, text='-', fg='black', width=10, command= lambda : sub())
 button_minus.grid(row = 3, column=3)
 
-button_multiply = Button(frame, text='*', fg='black', width=10)
+button_multiply = Button(frame, text='*', fg='black', width=10, command= lambda : mul())
 button_multiply.grid(row = 4, column=3)
 
-button_divide = Button(frame, text='/', fg='black', width=10)
+button_divide = Button(frame, text='/', fg='black', width=10, command= lambda: div())
 button_divide.grid(row = 5, column=0)
 
-button_equal = Button(frame, text='=', fg='black', width=10)
+button_equal = Button(frame, text='=', fg='black', width=10, command= lambda: equ())
 button_equal.grid(row = 5, column=1)
 
 button_c = Button(frame, text='C', fg='black', width=10, command = lambda : clear())
