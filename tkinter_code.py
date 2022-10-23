@@ -48,12 +48,35 @@ def equ():
 
     with open ('temp.txt', 'r') as g:
         expression = g.read()
-        for i in range(len(expression)):
-            if i % 2 == 0:
-                number = int(expression[i])
-                print(number)
+        # getting full number
+               
+        def number_1():
+            if (expression[1] == '+' or expression[1] == '-' or expression[1] == '*' or expression[1] == '/'):
+                return int(expression[0])
             else:
-                print(expression[i])
+                i = 0
+                number = ''
+                while expression[i] != ('+' or '-' or '*' or '/'):
+                    number += expression[i]
+                    i += 1
+                return int(number)
+        
+        def number_2():
+            return int(expression[2])
+        
+        number_1 = number_1()
+        number_2 = number_2()
+
+        if expression[1] == '+':
+            print('result is : ', number_1+number_2)
+        elif expression[1] == '-':
+            print('result is : ', number_1-number_2)
+        elif expression[1] == '*':
+            print('result is : ', number_1*number_2)
+        elif expression[1] == '/':
+            print('result is : ', number_1/number_2)
+
+            
         
     with open ('temp.txt', 'w') as j:
         j.write('')
